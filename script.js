@@ -37,25 +37,58 @@ function toggle() {
     }
 })();
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!reduceMotion) {
+    const heroStars = document.querySelector('.hero-stars');
+    if (heroStars) {
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < 28; i++) {
+            const star = document.createElement('span');
+            star.className = 'star';
+            const size = Math.random() * 2 + 1;
+            star.style.width = size.toFixed(2) + 'px';
+            star.style.height = size.toFixed(2) + 'px';
+            star.style.left = (Math.random() * 100) + '%';
+            star.style.top = (Math.random() * 100) + '%';
+            star.style.animationDelay = (Math.random() * 4) + 's';
+            star.style.animationDuration = (Math.random() * 3 + 2.5) + 's';
+            fragment.appendChild(star);
         }
+        heroStars.appendChild(fragment);
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    const reveal = (selector, { offset = 30, stagger = 0, delay = 0 } = {}) => {
+        document.querySelectorAll(selector).forEach((el, i) => {
+            if (el.closest('.hero')) return;
+            el.classList.add('reveal');
+            el.style.setProperty('--reveal-offset', offset + 'px');
+            el.style.setProperty('--reveal-delay', (delay + i * stagger) + 's');
+            observer.observe(el);
+        });
+    };
+
+    reveal('section, .about-grid, .book-detail-grid, .newsletter-inner, .excerpt-card, .faq-list');
+    reveal('.praise-card', { stagger: 0.12 });
+    reveal('.about-text p, .book-detail-text p, .excerpt-text p', { offset: 20, stagger: 0.08 });
+    reveal('.section-header, h1, h2, .section-label, .about-role, .faq-item', { offset: 20 });
+}
+
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.toggle('is-open');
+        button.setAttribute('aria-expanded', isOpen);
+        answer.style.maxHeight = isOpen ? answer.scrollHeight + 'px' : '0';
     });
-}, { threshold: 0.08 });
-
-document.querySelectorAll('section, .about-grid, .book-detail-grid, .newsletter-inner, .hero-inner, .excerpt-card, .praise-grid').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.7s ease-out';
-    observer.observe(el);
-});
-
-document.querySelectorAll('h1, h2, .hero-label, .section-label').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'all 0.6s ease-out 0.1s';
-    observer.observe(el);
 });
