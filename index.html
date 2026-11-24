@@ -213,6 +213,7 @@
     <div class="nav">
         <a href="#" class="logo">Evelyn Goldfinch</a>
         <nav id="nav" aria-label="Main navigation">
+            <span class="nav-indicator" aria-hidden="true"></span>
             <a href="#book" class="animate-link">The book</a>
             <a href="#praise" class="animate-link">Reader reviews</a>
             <a href="#excerpt" class="animate-link">Read a sample</a>
@@ -230,48 +231,54 @@
 <main id="main-content">
 
 <section class="hero" aria-label="Book introduction">
-    <div class="hero-stars" aria-hidden="true"></div>
+    <div class="hero-stars star-field" data-stars="60" aria-hidden="true"></div>
     <div class="hero-inner">
         <div class="hero-text">
-            <p class="hero-kicker">A memoir by Evelyn Goldfinch</p>
             <h1 class="hero-title">
                 <span class="hero-line"><span class="hero-line-inner">A Star So Far</span></span>
                 <span class="hero-line"><span class="hero-line-inner">from Heaven</span></span>
             </h1>
+            <p class="hero-byline">A memoir by Evelyn Goldfinch</p>
             <p class="hero-subtitle">A personal journey in search of love and self-worth.</p>
             <div class="hero-actions">
-                <a class="cta cta-primary" href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth/dp/B0F16TDM1S/" target="_blank" rel="noopener">Buy the paperback</a>
+                <a class="cta cta-primary" href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth/dp/B0F16TDM1S/" target="_blank" rel="noopener">Buy the paperback<svg class="cta-arrow" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 10 4M5 4h5v5"/></svg></a>
                 <a class="cta cta-ghost" href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth-ebook/dp/B0FDLJP7X5/" target="_blank" rel="noopener">Read on Kindle</a>
             </div>
             <figure class="hero-pull">
-                <blockquote>You cannot put this book down.</blockquote>
-                <figcaption>Emily O., reader</figcaption>
+                <span class="star-mark" aria-hidden="true"></span>
+                <div>
+                    <blockquote>You cannot put this book down.</blockquote>
+                    <figcaption>Emily O., reader</figcaption>
+                </div>
             </figure>
         </div>
         <div class="hero-image">
-            <picture><source type="image/webp" srcset="hero-book.webp"><img src="hero-book.png" alt="A Star So Far from Heaven book cover by Evelyn Goldfinch" width="591" height="860" fetchpriority="high"></picture>
+            <div class="hero-cover">
+                <picture><source type="image/webp" srcset="hero-book.webp"><img src="hero-book.png" alt="A Star So Far from Heaven book cover by Evelyn Goldfinch" width="591" height="860" fetchpriority="high"></picture>
+            </div>
         </div>
     </div>
+    <a class="scroll-cue" href="#book" aria-label="Scroll to the book"></a>
 </section>
 
 <section id="book" class="book-detail" aria-label="About the book">
     <div class="book-detail-grid">
-        <div class="book-detail-image">
+        <div class="book-detail-image" data-reveal="unveil">
             <picture><source type="image/webp" srcset="mock1.webp"><img loading="lazy" decoding="async" src="mock1.png" alt="A Star So Far from Heaven book cover and interior design mockup" width="773" height="695" decoding="async"></picture>
         </div>
-        <div class="book-detail-text">
+        <div class="book-detail-text" data-reveal="stagger">
             <h2>It began on an ordinary cleaning day.</h2>
             <p>A Star So Far from Heaven is a true story. A woman finds a single letter written long ago, and the daring decision that follows carries her on a life-changing journey.</p>
             <p>It is a memoir of people, places and relationships, told with candor and humor. Whether you are on your own path of self-discovery or simply want a read that stays with you, this book is for you.</p>
-            <a class="cta cta-primary" href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth/dp/B0F16TDM1S/" target="_blank" rel="noopener">Buy the paperback</a>
+            <a class="cta cta-primary" href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth/dp/B0F16TDM1S/" target="_blank" rel="noopener">Buy the paperback<svg class="cta-arrow" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 10 4M5 4h5v5"/></svg></a>
         </div>
     </div>
 </section>
 
 <section id="reviews" class="critics" aria-labelledby="critics-title">
     <div class="critics-inner">
-        <h2 id="critics-title">What the reviewers say</h2>
-        <div class="critics-list">
+        <h2 id="critics-title" data-reveal="heading">What the reviewers say</h2>
+        <div class="critics-list" data-reveal="stagger">
             <figure class="critic">
                 <blockquote>For anyone seeking spiritual depth and emotional healing, this book is a lighthouse. It shines through pain, past, and purpose.</blockquote>
                 <figcaption>Homeliness Literary Review</figcaption>
@@ -290,9 +297,9 @@
 
 <section id="praise" class="praise" aria-labelledby="praise-title">
     <div class="praise-inner">
-        <h2 id="praise-title" class="praise-title">Readers write back</h2>
+        <h2 id="praise-title" class="praise-title" data-reveal="heading">Readers write back</h2>
 
-        <figure class="praise-feature">
+        <figure class="praise-feature" data-reveal="fade">
             <blockquote>
                 <p class="praise-lead">Men see dating and marriage from one side. In <cite>A Star So Far from Heaven</cite> you get a peek at what's on the other side of the mirror.</p>
                 <p class="praise-follow">It's a sobering revelation. And a roller-coaster ride. Buckle up.</p>
@@ -301,7 +308,7 @@
         </figure>
 
         <div class="letters">
-            <figure class="letter">
+            <figure class="letter" data-reveal="letter">
                 <blockquote>
                     <p>Through vivid dedication to detail, the author welcomes the reader as an active participant in her life and its patterns of joy and difficulties. At its core, this book is both a vow of perseverance and an elegy of romantic longing.</p>
                     <p>It is a story of passions and experiences that lead to both bliss and heartbreak, as we are transported into her life and, conversely, its overlapping mandala of memories. You cannot put this book down. The author speaks to you like a close friend that you will want to keep for a lifetime.</p>
@@ -309,7 +316,7 @@
                 <figcaption>Emily O.</figcaption>
             </figure>
 
-            <figure class="letter">
+            <figure class="letter" data-reveal="letter">
                 <blockquote>
                     <p>I enjoyed reading <cite>A Star So Far From Heaven</cite>. I admired her vulnerability, her determination to make sense of the past, her openness to transformation and to seeking a brighter, more fulfilling future.</p>
                     <p>With poetic, literary command of the English language, the book was easy to read, as she shares with candor and humor some of her deeply personal experiences. It's a great read for anyone, especially for those who seek to reconcile with a concerning psychological and/or spiritual past.</p>
@@ -322,27 +329,27 @@
 
 <section id="excerpt" class="excerpt" aria-label="Book excerpt">
     <div class="excerpt-inner">
-        <div class="excerpt-head">
+        <div class="excerpt-head" data-reveal="stagger">
             <h2>Read the first page</h2>
             <p>From the opening chapter, &ldquo;In the Beginning.&rdquo;</p>
         </div>
-        <div class="excerpt-page excerpt-text">
+        <div class="excerpt-page excerpt-text" data-reveal="page">
             <p>I don't remember what time of year it was when it all began or what the weather was like. Bright? Sunny? Gloomy? It must have been Tuesday, though, because I was cleaning and that is the day I clean my house.</p>
             <p>From the outside, it resembles all the other unremarkable ranchers. Because of this, I was determined to make the inside as unique as possible, so that when the front door opens, it's a&hellip;</p>
-            <a class="cta cta-secondary" href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth-ebook/dp/B0FDLJP7X5/" target="_blank" rel="noopener">Keep reading on Kindle</a>
+            <a class="cta cta-secondary" href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth-ebook/dp/B0FDLJP7X5/" target="_blank" rel="noopener">Keep reading on Kindle<svg class="cta-arrow" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 10 4M5 4h5v5"/></svg></a>
         </div>
     </div>
 </section>
 
 <section id="about" class="about" aria-label="About the author">
     <div class="about-grid">
-        <div class="about-text">
+        <div class="about-text" data-reveal="stagger">
             <h2>About Evelyn Goldfinch</h2>
             <p>Evelyn Goldfinch is a musician who carves out a living in a small town in the hills of Pennsylvania, where she lives with her two worshiped and completely adorable cats, Moses and Mirabel.</p>
             <p>Her writing draws on the quiet beauty of rural life, the complexity of human connection, and the search for meaning in an often chaotic world. Her voice is both fierce and vulnerable, and her stories stay with you long after the final page.</p>
             <p class="about-role">Author and musician, Pennsylvania, USA</p>
         </div>
-        <div class="about-image">
+        <div class="about-image" data-reveal="frame">
             <picture><source type="image/webp" srcset="author-photo.webp"><img loading="lazy" decoding="async" src="author-photo.png" alt="Evelyn Goldfinch, author and musician from the hills of Pennsylvania" width="481" height="641" decoding="async"></picture>
         </div>
     </div>
@@ -350,47 +357,47 @@
 
 <section id="faq" class="faq" aria-label="Frequently asked questions">
     <div class="faq-inner">
-        <h2>Questions readers ask</h2>
-        <div class="faq-list">
+        <h2 data-reveal="heading">Questions readers ask</h2>
+        <div class="faq-list" data-reveal="stagger">
             <div class="faq-item">
-                <button class="faq-question" aria-expanded="false" type="button">
+                <button class="faq-question" id="faq-q1" aria-expanded="false" aria-controls="faq-a1" type="button">
                     What is A Star So Far from Heaven about?
                     <span class="faq-icon" aria-hidden="true"></span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
                     <div class="faq-answer-inner">
                         <p>A Star So Far from Heaven is a true story that begins on an ordinary cleaning day with the discovery of a single letter written long ago, and follows one woman's daring decision and life-changing journey in search of love and self-worth.</p>
                     </div>
                 </div>
             </div>
             <div class="faq-item">
-                <button class="faq-question" aria-expanded="false" type="button">
+                <button class="faq-question" id="faq-q2" aria-expanded="false" aria-controls="faq-a2" type="button">
                     Who is Evelyn Goldfinch?
                     <span class="faq-icon" aria-hidden="true"></span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
                     <div class="faq-answer-inner">
                         <p>Evelyn Goldfinch is a musician and author who carves out a living in a small town in the hills of Pennsylvania, where she lives with her two cats, Moses and Mirabel. Her writing explores rural life, human connection, and the search for meaning.</p>
                     </div>
                 </div>
             </div>
             <div class="faq-item">
-                <button class="faq-question" aria-expanded="false" type="button">
+                <button class="faq-question" id="faq-q3" aria-expanded="false" aria-controls="faq-a3" type="button">
                     Where can I buy A Star So Far from Heaven?
                     <span class="faq-icon" aria-hidden="true"></span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
                     <div class="faq-answer-inner">
                         <p>A Star So Far from Heaven is available on <a href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth/dp/B0F16TDM1S/" target="_blank" rel="noopener">Amazon in paperback</a> and as a <a href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth-ebook/dp/B0FDLJP7X5/" target="_blank" rel="noopener">Kindle ebook</a>.</p>
                     </div>
                 </div>
             </div>
             <div class="faq-item">
-                <button class="faq-question" aria-expanded="false" type="button">
+                <button class="faq-question" id="faq-q4" aria-expanded="false" aria-controls="faq-a4" type="button">
                     Is A Star So Far from Heaven available as an ebook?
                     <span class="faq-icon" aria-hidden="true"></span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
                     <div class="faq-answer-inner">
                         <p>Yes, A Star So Far from Heaven is available as a <a href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth-ebook/dp/B0FDLJP7X5/" target="_blank" rel="noopener">Kindle ebook on Amazon</a>.</p>
                     </div>
@@ -400,15 +407,16 @@
     </div>
 </section>
 
-<section class="farthest" aria-label="A closing thought">
+<section class="farthest" aria-label="A closing thought" data-reveal="ignite">
+    <div class="farthest-sky star-field" data-stars="28" aria-hidden="true"></div>
     <div class="farthest-star" aria-hidden="true"></div>
     <blockquote>Even the farthest star can shine brilliantly in the darkest sky.</blockquote>
-    <a class="cta cta-primary" href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth/dp/B0F16TDM1S/" target="_blank" rel="noopener">Start reading today</a>
+    <a class="cta cta-primary" href="https://www.amazon.com/Star-So-Far-Heaven-Self-Worth/dp/B0F16TDM1S/" target="_blank" rel="noopener">Start reading today<svg class="cta-arrow" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 10 4M5 4h5v5"/></svg></a>
 </section>
 
 <section id="newsletter" class="newsletter" aria-label="Newsletter signup">
     <div class="newsletter-inner">
-        <div class="newsletter-content">
+        <div class="newsletter-content" data-reveal="stagger">
             <h2>Get news from Evelyn</h2>
             <p>New releases, events and exclusive writing, sent to your inbox.</p>
             <form class="newsletter-form" action="#" method="post">
@@ -417,13 +425,13 @@
                 <button type="submit">Subscribe</button>
             </form>
         </div>
-        <div class="newsletter-image">
+        <div class="newsletter-image" data-reveal="unveil">
             <picture><source type="image/webp" srcset="mock2.webp"><img loading="lazy" decoding="async" src="mock2.png" alt="A Star So Far from Heaven promotional marketing materials" width="1147" height="865" decoding="async"></picture>
         </div>
     </div>
 </section>
 
-<section id="contact" class="contact" aria-label="Contact">
+<section id="contact" class="contact" aria-label="Contact" data-reveal="stagger">
     <h2>Write to Evelyn</h2>
     <p>Have a question, a media inquiry, or just want to say hello? She would love to hear from you.</p>
     <a class="cta cta-primary" href="mailto:we3keanes@comcast.net">Send an email</a>
