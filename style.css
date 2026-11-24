@@ -437,25 +437,25 @@ p { text-wrap: pretty; }
 .hero h1 { text-shadow: 0 0 60px rgba(228, 194, 126, 0.25); }
 .hero h1 .hero-line:nth-child(2) .hero-line-inner { color: var(--star); }
 
-/* Themes: a staircase that climbs toward the star */
-.themes { background: var(--dusk); color: var(--on-night); overflow: hidden; }
-.themes-inner { max-width: var(--wrap); margin: auto; }
-.themes h2 { color: #fff; margin-bottom: 14px; }
-.themes-intro { color: var(--on-night-muted); max-width: 46ch; margin-bottom: 88px; }
-.steps { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; align-items: end; }
-.step { position: relative; padding-top: 40px; border-top: 1px solid rgba(228, 194, 126, 0.5); }
-.step::before {
+/* Literary reviews */
+.critics { background: var(--dusk); color: var(--on-night); }
+.critics-inner { max-width: var(--wrap); margin: auto; }
+.critics h2 { color: #fff; margin-bottom: 72px; }
+.critics-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.critic { position: relative; padding-top: 40px; border-top: 1px solid rgba(228, 194, 126, 0.5); }
+.critic::before {
   content: ''; position: absolute; top: -9px; left: 0; width: 18px; height: 18px; background: var(--star);
   clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
   filter: drop-shadow(0 0 8px rgba(228, 194, 126, 0.8));
 }
-.step:nth-child(1) { margin-bottom: 0; }
-.step:nth-child(2) { margin-bottom: 56px; }
-.step:nth-child(3) { margin-bottom: 112px; }
-.step:nth-child(4) { margin-bottom: 168px; }
-.step h3 { font-size: 30px; color: #fff; margin-bottom: 12px; }
-.step p { color: var(--on-night-muted); font-size: 16px; }
-.step:nth-child(4)::before { width: 26px; height: 26px; top: -13px; }
+.critic blockquote {
+  font-family: var(--display); font-style: italic; font-weight: 500;
+  font-size: 24px; line-height: 1.45; color: #fff;
+}
+.critic figcaption {
+  margin-top: 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--star);
+}
 
 /* Closing star */
 .farthest {
@@ -474,11 +474,11 @@ p { text-wrap: pretty; }
 }
 
 @media (max-width: 960px) {
-  .steps { grid-template-columns: 1fr 1fr; gap: 48px 28px; align-items: start; }
-  .step:nth-child(n) { margin-bottom: 0; }
+  .critics-list { grid-template-columns: 1fr; gap: 56px; max-width: 640px; }
 }
 @media (max-width: 560px) {
-  .steps { grid-template-columns: 1fr; }
+  .critics h2 { margin-bottom: 56px; }
+  .critic blockquote { font-size: 22px; }
   .hero-image::before { width: 120%; }
 }
 @media (prefers-reduced-motion: reduce) { .hero-image::before { animation: none; } }
