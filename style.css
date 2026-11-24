@@ -464,19 +464,22 @@ header.is-scrolled {
 
 /* A page lifted from a stack of pages */
 .excerpt-page {
-  position: relative;
-  background: var(--paper); padding: 64px 64px 52px; border-radius: 3px;
-  box-shadow: var(--shadow-paper);
+  position: relative; isolation: isolate;
+  padding: 64px 64px 52px;
 }
 .excerpt-page::before, .excerpt-page::after {
-  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 3px;
-  background: #EFECE6; box-shadow: 0 2px 6px rgba(18, 20, 42, 0.08);
+  content: ''; position: absolute; inset: 0; border-radius: 3px;
+}
+/* the page itself */
+.excerpt-page::before { z-index: -1; background: var(--paper); box-shadow: var(--shadow-paper); }
+/* the sheet underneath it */
+.excerpt-page::after {
+  z-index: -2; background: #E0DBD2;
+  box-shadow: 0 2px 6px rgba(18, 20, 42, 0.1), 0 18px 36px -18px rgba(18, 20, 42, 0.25);
+  transform: rotate(1.8deg) translate(8px, 10px);
   transition: transform 700ms var(--ease);
 }
-.excerpt-page::before { transform: rotate(-1.6deg) translate(-6px, 6px); }
-.excerpt-page::after { transform: rotate(1.1deg) translate(8px, 10px); background: #E2DED6; }
-.excerpt-page:hover::before { transform: rotate(-2.6deg) translate(-12px, 8px); }
-.excerpt-page:hover::after { transform: rotate(2deg) translate(14px, 14px); }
+.excerpt-page:hover::after { transform: rotate(3deg) translate(14px, 14px); }
 
 .excerpt-text p {
   font-family: var(--display); font-size: 23px; line-height: 1.62; font-weight: 500;
@@ -713,7 +716,6 @@ footer p { font-size: 13px; }
 
 /* page: the excerpt page lifts free of its stack */
 .js-reveal [data-reveal="page"]:not(.is-in) { opacity: 0; transform: translateY(40px) rotate(-1.5deg); }
-.js-reveal [data-reveal="page"]:not(.is-in)::before,
 .js-reveal [data-reveal="page"]:not(.is-in)::after { transform: none; }
 
 /* stagger: children arrive in reading order */
@@ -805,8 +807,7 @@ footer p { font-size: 13px; }
   .letter:nth-child(2) { --tilt: 0.7deg; }
   .letter blockquote p { font-size: 20px; }
   .excerpt-page { padding: 36px 26px; }
-  .excerpt-page::before { transform: rotate(-1deg) translate(-3px, 4px); }
-  .excerpt-page::after { transform: rotate(0.8deg) translate(4px, 7px); }
+  .excerpt-page::after { transform: rotate(1deg) translate(4px, 7px); }
   .excerpt-text p { font-size: 21px; }
   .newsletter-form { flex-direction: column; }
   .faq-question { font-size: 21px; }
